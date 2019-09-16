@@ -14,7 +14,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\GameData\AntennaHelper</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -23,12 +23,18 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\GameData\AntennaHelper</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AssemblyVersion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssemblyVersion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InstallChecker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AHSettings.cs" />
     <Compile Include="AHMapMarker.cs" />
@@ -50,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\KSPandMH\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>R:\KSP_1.7.3-GC-OSE\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System">
@@ -58,20 +64,52 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="ToolbarControl">
-      <HintPath>..\..\KSPandMH\GameData\001_ToolbarControl\Plugins\ToolbarControl.dll</HintPath>
+      <HintPath>R:\KSP_1.7.3_dev\GameData\001_ToolbarControl\Plugins\ToolbarControl.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\KSPandMH\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>R:\KSP_1.7.3-GC-OSE\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\KSPandMH\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>R:\KSP_1.7.3-GC-OSE\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ClickThroughBlocker">
-      <HintPath>..\..\KSPandMH\GameData\000_ClickThroughBlocker\Plugins\ClickThroughBlocker.dll</HintPath>
+      <HintPath>R:\KSP_1.7.3-GC-OSE\GameData\000_ClickThroughBlocker\Plugins\ClickThroughBlocker.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="AssemblyVersion.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AssemblyVersion.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PreBuildEvent>set textTemplatingPath="%25ProgramFiles(x86)%25\Microsoft Visual Studio\2017\Community\Common7\IDE\texttransform.exe"
+
+
+
+
+%25textTemplatingPath%25 "$(ProjectDir)AssemblyVersion.tt"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>start /D D:\Users\jbb\github\Antenna-Helper /WAIT deploy.bat  $(TargetDir) $(TargetFileName)
+
+
+
+if $(ConfigurationName) == Release (
+
+
+
+	start /D D:\Users\jbb\github\Antenna-Helper /WAIT buildRelease.bat $(TargetDir) $(TargetFileName)
+
+
+
+)</PostBuildEvent>
+  </PropertyGroup>
 </Project>

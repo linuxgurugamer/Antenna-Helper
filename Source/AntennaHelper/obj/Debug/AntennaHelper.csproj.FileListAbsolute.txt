@@ -1,6 +1,0 @@
-D:\GitHub\Antenna-Helper\GameData\AntennaHelper\AntennaHelper.dll
-D:\GitHub\Antenna-Helper\GameData\AntennaHelper\AntennaHelper.pdb
-D:\GitHub\Antenna-Helper\Source\AntennaHelper\obj\Debug\AntennaHelper.dll
-D:\GitHub\Antenna-Helper\Source\AntennaHelper\obj\Debug\AntennaHelper.pdb
-D:\GitHub\Antenna-Helper\Source\AntennaHelper\obj\Debug\AntennaHelper.csprojAssemblyReference.cache
-D:\GitHub\Antenna-Helper\Source\AntennaHelper\obj\Debug\AntennaHelper.csproj.CoreCompileInputs.cache

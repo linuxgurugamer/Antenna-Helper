@@ -51,3 +51,7 @@ Marketing/
 *.userprefs
 Source/AntennaHelper/AntennaHelper.userprefs
 Source/AntennaHelper/.vs/
+*~
+*.bak
+db.lock
+.vs
