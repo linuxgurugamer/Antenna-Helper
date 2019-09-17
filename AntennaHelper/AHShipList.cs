@@ -9,8 +9,8 @@ namespace AntennaHelper
 {
 	public static class AHShipList
 	{
-		private static Dictionary<string, Dictionary <string, string>> listEditorVessel;
-		private static Dictionary<string, Dictionary <string, string>> listFlyingVessel;
+		private static Dictionary<string, Dictionary <string, string>> listEditorVessel = new Dictionary<string, Dictionary<string, string>>();
+		private static Dictionary<string, Dictionary <string, string>> listFlyingVessel = new Dictionary<string, Dictionary<string, string>>();
 		private static string savePath;
 		private static string loadedGame;
 		private static bool loadedOnce;
@@ -369,7 +369,9 @@ namespace AntennaHelper
 
 		public static Dictionary<string, Dictionary <string, string>> GetShipList (bool editorShip, bool flyingShip, bool applyMod = false)
 		{
-			Dictionary<string, Dictionary <string, string>> returnList = new Dictionary<string, Dictionary<string, string>> ();
+            Debug.Log("GetShipList, editorShip: " + editorShip + ", flyingShip: " + flyingShip + ", applyMod: " + applyMod);
+
+            Dictionary<string, Dictionary <string, string>> returnList = new Dictionary<string, Dictionary<string, string>> ();
 
 			if (editorShip) {
 				foreach (KeyValuePair<string, Dictionary<string, string>> kvp in listEditorVessel) {

@@ -3,3 +3,6 @@
 	Adoption by Linuxgurugamer
 	Added AssemblyVersion.tt
 	Added InstallChecker.cs
+
+1.0.6.2
+	Fixed nullref when going into editor with no vessels around
