@@ -1,3 +1,4 @@
+ChangeLog
 
 1.0.6.1
 	Adoption by Linuxgurugamer
@@ -6,3 +7,6 @@
 
 1.0.6.2
 	Fixed nullref when going into editor with no vessels around
+
+1.0.7
+	Updated for KSP 1.8
