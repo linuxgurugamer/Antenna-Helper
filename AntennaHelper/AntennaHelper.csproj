@@ -64,10 +64,6 @@
 	   <Private>False</Private>
     </Reference>
     <Reference Include="System" />	
-    <Reference Include="System">
-      <HintPath>..\..\KSPandMH\KSP_x64_Data\Managed\System.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="ToolbarControl">
       <HintPath>$(KSPDIR)\GameData\001_ToolbarControl\Plugins\ToolbarControl.dll</HintPath>
       <Private>False</Private>
