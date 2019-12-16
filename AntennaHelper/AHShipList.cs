@@ -21,7 +21,7 @@ namespace AntennaHelper
 
 		static AHShipList ()
 		{
-			savePath = KSPUtil.ApplicationRootPath + "GameData/AntennaHelper/PluginData/VesselList.cfg";
+			savePath = RegisterToolbar.ApplicationRootPath + "GameData/AntennaHelper/PluginData/VesselList.cfg";
 			loadedOnce = false;
 			shipListReady = false;
 
@@ -290,42 +290,42 @@ namespace AntennaHelper
 			}
 		}
 
-//		public static void ParseCraftFiles ()
-//		{
-//			// This run per save
-//			// Overwrite the existing data for this save
-//			listEditorVessel = new Dictionary<string, Dictionary<string, string>> ();
-//			Debug.Log ("[AH] Starting to parse .craft files for save : " + loadedGame);
-//
-//			string loadedGameStr = loadedGame;
-//			if (loadedGame.Contains (" (SANDBOX)")) {
-//				loadedGameStr.Remove (loadedGame.IndexOf (" (SANDBOX)"));
-//			} else if (loadedGame.Contains (" (CAREER)")) {
-//				loadedGameStr.Remove (loadedGame.IndexOf (" (CAREER)"));
-//			} else if (loadedGame.Contains (" (SCIENCE)")) {
-//				loadedGameStr.Remove (loadedGame.IndexOf (" (SCIENCE)"));
-//			} else {
-//				Debug.Log ("[AH] the name of the save can't be parsed");
-//			}
-//
-//			DirectoryInfo shipsDir = new DirectoryInfo (KSPUtil.ApplicationRootPath + "saves/" + loadedGameStr + "/Ships");
-//			FileInfo[] craftFiles = shipsDir.GetFiles ();
-//
-//			foreach (FileInfo craft in craftFiles) {
-//				if (craft.Extension != "craft") {
-//					continue;
-//				}
-//
-//				ConfigNode craftConf = ConfigNode.Load (craft.FullName);
-//				string craftName = craftConf.GetValue ("ship");
-//				listEditorVessel.Add (craftName, new Dictionary<string, string> ());
-//				listEditorVessel [craftName].Add ("type", craftConf.GetValue ("type"));
-//
-//
-//			}
-//		}
+        //		public static void ParseCraftFiles ()
+        //		{
+        //			// This run per save
+        //			// Overwrite the existing data for this save
+        //			listEditorVessel = new Dictionary<string, Dictionary<string, string>> ();
+        //			Debug.Log ("[AH] Starting to parse .craft files for save : " + loadedGame);
+        //
+        //			string loadedGameStr = loadedGame;
+        //			if (loadedGame.Contains (" (SANDBOX)")) {
+        //				loadedGameStr.Remove (loadedGame.IndexOf (" (SANDBOX)"));
+        //			} else if (loadedGame.Contains (" (CAREER)")) {
+        //				loadedGameStr.Remove (loadedGame.IndexOf (" (CAREER)"));
+        //			} else if (loadedGame.Contains (" (SCIENCE)")) {
+        //				loadedGameStr.Remove (loadedGame.IndexOf (" (SCIENCE)"));
+        //			} else {
+        //				Debug.Log ("[AH] the name of the save can't be parsed");
+        //			}
+        //
+        //			DirectoryInfo shipsDir = new DirectoryInfo (RegisterToolbar.ApplicationRootPath + "saves/" + loadedGameStr + "/Ships");
+        //			FileInfo[] craftFiles = shipsDir.GetFiles ();
+        //
+        //			foreach (FileInfo craft in craftFiles) {
+        //				if (craft.Extension != "craft") {
+        //					continue;
+        //				}
+        //
+        //				ConfigNode craftConf = ConfigNode.Load (craft.FullName);
+        //				string craftName = craftConf.GetValue ("ship");
+        //				listEditorVessel.Add (craftName, new Dictionary<string, string> ());
+        //				listEditorVessel [craftName].Add ("type", craftConf.GetValue ("type"));
+        //
+        //
+        //			}
+        //		}
 
-		public static void UpdateLoadedGame ()
+        public static void UpdateLoadedGame ()
 		{
 			if (!loadedOnce) {
 				DoStart ();

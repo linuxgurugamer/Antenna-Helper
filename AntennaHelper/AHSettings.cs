@@ -32,7 +32,7 @@ namespace AntennaHelper
 		public static void Load ()
 		{
 			// Check for the settings file
-			settingsNode = ConfigNode.Load (KSPUtil.ApplicationRootPath + "GameData/AntennaHelper/PluginData/Settings.cfg");
+			settingsNode = ConfigNode.Load (RegisterToolbar.ApplicationRootPath + "GameData/AntennaHelper/PluginData/Settings.cfg");
 			if (settingsNode == null) {
 				settingsNode = new ConfigNode ();
 			}
@@ -90,7 +90,7 @@ namespace AntennaHelper
 
 		public static void WriteSave ()
 		{
-			settingsNode.Save (KSPUtil.ApplicationRootPath + "GameData/AntennaHelper/PluginData/Settings.cfg");
+			settingsNode.Save (RegisterToolbar.ApplicationRootPath + "GameData/AntennaHelper/PluginData/Settings.cfg");
 			Load ();
 		}
 	}

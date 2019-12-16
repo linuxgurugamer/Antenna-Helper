@@ -10,3 +10,6 @@ ChangeLog
 
 1.0.7
 	Updated for KSP 1.8
+
+1.0.7.1
+	Fixed Unity exceptions caused by invalid access ot uninitialized var KSPUtil.ApplicationRootPath
