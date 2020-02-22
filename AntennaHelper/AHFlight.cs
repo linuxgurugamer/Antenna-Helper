@@ -159,10 +159,10 @@ namespace AntennaHelper
 			deployableAntennas = new Dictionary<ModuleDeployableAntenna, bool> ();
 
 			foreach (Part part in vessel.Parts.FindAll (
-				p => (p.Modules.Contains<ModuleDataTransmitter> ()) && (p.Modules.Contains<ModuleDeployableAntenna> ())))
+				p => (p.HasModuleImplementing<ModuleDataTransmitter> ()) && (p.HasModuleImplementing<ModuleDeployableAntenna> ())))
 			{
 				bool extended = true;
-				ModuleDeployableAntenna deployable = part.Modules.GetModule<ModuleDeployableAntenna> ();
+				ModuleDeployableAntenna deployable = part.FindModuleImplementing<ModuleDeployableAntenna> ();
 
 				if (deployable.deployState != ModuleDeployablePart.DeployState.EXTENDED) {
 					extended = false;

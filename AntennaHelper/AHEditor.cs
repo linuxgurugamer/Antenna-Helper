@@ -455,7 +455,7 @@ namespace AntennaHelper
 			relayCombAntennaList = new List<ModuleDataTransmitter> ();
 
 			foreach (Part part in EditorLogic.fetch.ship.Parts) {
-				foreach (ModuleDataTransmitter antenna in part.Modules.GetModules<ModuleDataTransmitter> ()) {
+				foreach (ModuleDataTransmitter antenna in part.FindModulesImplementing<ModuleDataTransmitter> ()) {
 					directAntennaList.Add (antenna);
 					if (antenna.antennaCombinable) {
 						directCombAntennaList.Add (antenna);
@@ -486,11 +486,10 @@ namespace AntennaHelper
 
 		public void AntennaListAddItem (Part part)
 		{
-			if (part.Modules.Contains<ModuleDataTransmitter> ()) {
-				foreach (ModuleDataTransmitter antenna in part.Modules.GetModules<ModuleDataTransmitter> ()) {
+
+            foreach (ModuleDataTransmitter antenna in part.FindModulesImplementing<ModuleDataTransmitter> ()) {
 					AntennaListAddItem (antenna);
 				}
-			}
 		}
 
 		public void AntennaListRemoveItem (ModuleDataTransmitter antenna)
@@ -511,10 +510,8 @@ namespace AntennaHelper
 
 		public void AntennaListRemoveItem (Part part)
 		{
-			if (part.Modules.Contains<ModuleDataTransmitter> ()) {
-				foreach (ModuleDataTransmitter antenna in part.Modules.GetModules<ModuleDataTransmitter> ()) {
-					AntennaListRemoveItem (antenna);
-				}
+			foreach (ModuleDataTransmitter antenna in part.FindModulesImplementing<ModuleDataTransmitter> ()) {
+				AntennaListRemoveItem (antenna);
 			}
 		}
 		#endregion
