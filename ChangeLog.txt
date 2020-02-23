@@ -13,3 +13,7 @@ ChangeLog
 
 1.0.7.1
 	Fixed Unity exceptions caused by invalid access ot uninitialized var KSPUtil.ApplicationRootPath
+
+1.0.7.2
+	Thanks to user @tivec for this:
+		Change instances of part.Modules.find to part.FindModuleImplementing, This will make it so that mods that extends ModuleDataTransmitter (such as Near Future Exploration) is supported by this mod.
