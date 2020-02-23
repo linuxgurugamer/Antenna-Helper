@@ -213,11 +213,11 @@ namespace AntennaHelper
 
 			if (v.parts.Count > 0) {
 				foreach (Part p in v.parts) {
-					if (p.Modules.Contains<ModuleDataTransmitter> ()) {
+					if (p.HasModuleImplementing<ModuleDataTransmitter> ()) {
 						// Check extendability
 						if (checkIfExtended) {
-							if (p.Modules.Contains<ModuleDeployableAntenna>()) {
-								ModuleDeployableAntenna antDep = p.Modules.GetModule<ModuleDeployableAntenna> ();
+							if (p.HasModuleImplementing<ModuleDeployableAntenna>()) {
+								ModuleDeployableAntenna antDep = p.FindModuleImplementing<ModuleDeployableAntenna> ();
 								if ((antDep.deployState != ModuleDeployablePart.DeployState.EXTENDED) 
 									&& (antDep.deployState != ModuleDeployablePart.DeployState.EXTENDING)) {
 									continue;
@@ -225,7 +225,7 @@ namespace AntennaHelper
 							}
 						}
 
-						ModuleDataTransmitter ant = p.Modules.GetModule<ModuleDataTransmitter> ();
+						ModuleDataTransmitter ant = p.FindModuleImplementing<ModuleDataTransmitter> ();
 
 						// Check if relay
 						if (onlyRelay) {
@@ -247,10 +247,10 @@ namespace AntennaHelper
 				// This is for the tracking station, as the active vessel isn't actually active
 				foreach (ProtoPartSnapshot p in v.protoVessel.protoPartSnapshots) {
 					
-					if (p.partPrefab.Modules.Contains<ModuleDataTransmitter> ()) {
+					if (p.partPrefab.HasModuleImplementing<ModuleDataTransmitter> ()) {
 						// Check extendability
 						if (checkIfExtended) {
-							if (p.partPrefab.Modules.Contains<ModuleDeployableAntenna>()) {
+							if (p.partPrefab.HasModuleImplementing<ModuleDeployableAntenna>()) {
 								string antDep = p.modules.Find (x => x.moduleName == "ModuleDeployableAntenna").moduleValues.GetValue ("deployState");
 								if ((antDep != "EXTENDED") 
 								    && (antDep != "EXTENDING")) {
@@ -259,7 +259,7 @@ namespace AntennaHelper
 							}
 						}
 
-						ModuleDataTransmitter ant = p.partPrefab.Modules.GetModule<ModuleDataTransmitter> ();
+						ModuleDataTransmitter ant = p.partPrefab.FindModuleImplementing<ModuleDataTransmitter> ();
 						// Check if relay
 						if (onlyRelay) {
 							if (ant.antennaType != AntennaType.RELAY) {
