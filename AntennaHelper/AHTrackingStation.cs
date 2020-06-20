@@ -327,6 +327,10 @@ namespace AntennaHelper
 		#region GUI
 		public void OnGUI ()
 		{
+			if (!HighLogic.CurrentGame.Parameters.CustomParams<AntennaHelperSettings>().altSkin)
+				GUI.skin = HighLogic.Skin;
+
+
 			if (mainWindowOn) {
 				rectMainWindow = ClickThruBlocker.GUIWindow (889204, rectMainWindow, MainWindow, Localizer.Format ("#autoLOC_AH_0001"));
 			}

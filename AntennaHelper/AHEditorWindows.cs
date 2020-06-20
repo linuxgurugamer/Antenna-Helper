@@ -49,7 +49,26 @@ namespace AntennaHelper
 			}
 
 			// Number display :
+			float width = AHEditor.rectMainWindow.width * .4f;
 			GUILayout.BeginHorizontal ();
+			GUILayout.Label(/*Status*/Localizer.Format("#autoLOC_AH_0008") + " : ", GUILayout.Width(width));
+			GUILayout.Label(antennaTypeIsDirect ? AHEditor.statusStringDirect : AHEditor.statusStringRelay);
+			GUILayout.EndHorizontal();
+			GUILayout.BeginHorizontal();
+			GUILayout.Label(/*Power*/Localizer.Format("#autoLOC_AH_0009") + " : ", GUILayout.Width(width));
+			GUILayout.Label(antennaTypeIsDirect ? AHEditor.directBetterPower.ToString("N0"): AHEditor.relayBetterPower.ToString("N0"));
+			GUILayout.EndHorizontal();
+			GUILayout.BeginHorizontal();
+			GUILayout.Label(/*Max Range*/Localizer.Format("#autoLOC_AH_0010") + " : ", GUILayout.Width(width));
+			GUILayout.Label(antennaTypeIsDirect ? AHEditor.directBetterRange.ToString("N0") + "m" : AHEditor.relayBetterRange.ToString("N0") + "m");
+			GUILayout.EndHorizontal();
+			GUILayout.BeginHorizontal();
+			GUILayout.Label(/*Max Distance At 100%*/Localizer.Format("#autoLOC_AH_0011") + " : ", GUILayout.Width(width));
+			GUILayout.Label(antennaTypeIsDirect ? AHEditor.directDistanceAt100.ToString("N0") + "m": AHEditor.relayDistanceAt100.ToString("N0") + "m");
+			GUILayout.EndHorizontal();
+
+#if fale
+			GUILayout.BeginHorizontal();
 			GUILayout.BeginVertical ();
 			GUILayout.Label (/*Status*/Localizer.Format ("#autoLOC_AH_0008") + " : ");
 			GUILayout.Label (/*Power*/Localizer.Format ("#autoLOC_AH_0009") + " : ");
@@ -70,7 +89,7 @@ namespace AntennaHelper
 			}
 			GUILayout.EndVertical ();
 			GUILayout.EndHorizontal ();
-
+#endif
 			GUILayout.Space (16f);
 			GUIStyle guiStyleCenter = new GUIStyle (GUI.skin.GetStyle ("Label"));
 			guiStyleCenter.alignment = TextAnchor.MiddleCenter;

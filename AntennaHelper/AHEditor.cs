@@ -706,6 +706,9 @@ namespace AntennaHelper
 
 		public void OnGUI ()
 		{
+			if (!HighLogic.CurrentGame.Parameters.CustomParams<AntennaHelperSettings>().altSkin)
+				GUI.skin = HighLogic.Skin;
+
 			if (showMainWindow) {
 				GUILayout.BeginArea (rectMainWindow);
 				rectMainWindow = GUILayout.Window (835298, rectMainWindow, AHEditorWindows.MainWindow, Localizer.Format ("#autoLOC_AH_0001"));

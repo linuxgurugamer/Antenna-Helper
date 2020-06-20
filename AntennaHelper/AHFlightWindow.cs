@@ -148,6 +148,9 @@ namespace AntennaHelper
 
 		void OnGUI ()
 		{
+			if (!HighLogic.CurrentGame.Parameters.CustomParams<AntennaHelperSettings>().altSkin)
+				GUI.skin = HighLogic.Skin;
+
 
 			if (!guiHasStarted) {
 				OnGUIStarter ();

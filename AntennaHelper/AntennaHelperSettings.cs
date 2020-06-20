@@ -66,6 +66,9 @@ namespace AntennaHelper
 		[GameParameters.CustomFloatParameterUI (/*debug*/"Start Delay", displayFormat = "0.0", maxValue = 10f, minValue = .1f)]
 		public float startDelay = 1f;
 
+		[GameParameters.CustomParameterUI("Alternate skin")]
+		public bool altSkin = true;
+
 		public override bool Enabled (MemberInfo member, GameParameters parameters)
 		{
 			return true;
