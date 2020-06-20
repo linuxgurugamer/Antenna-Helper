@@ -207,7 +207,7 @@ namespace AntennaHelper
 			GUILayout.Label (" : ", guiStyleLabelBold);
 			GUILayout.Label (detailsActiveConnectLinks [0] ["activeSignalStrength"], guiStyleLabelBold);
 			GUILayout.EndHorizontal ();
-
+			
 			foreach (Dictionary<string, string> activeLink in detailsActiveConnectLinks) {
 				GUILayout.BeginHorizontal ();
 				GUILayout.Space (10f);

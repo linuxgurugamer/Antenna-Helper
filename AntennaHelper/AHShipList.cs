@@ -207,8 +207,11 @@ namespace AntennaHelper
 			foreach (Vessel vessel in masterList)
 			{
 				returnDict.Add (vessel, new Dictionary<Vessel, LinkPath> ());
-				foreach (Vessel relay in relays.FindAll (v => (v != vessel)))
-				{
+				var allRelays = relays.FindAll(v=> v != vessel);
+				for (int r = allRelays.Count - 1; r >=  0; r--) {
+					var relay = allRelays[r];
+				//foreach (Vessel relay in relays.FindAll (v => (v != vessel)))
+				//{
 					returnDict [vessel].Add (relay, new LinkPath (relay));
 				}
 			}
@@ -218,8 +221,9 @@ namespace AntennaHelper
 		public static void ParseFlyingVessel (bool doRealSignalNow = false)
 		{
 			listFlyingVessel = new Dictionary<string, Dictionary<string, string>> ();
-
-			foreach (Vessel v in FlightGlobals.Vessels) {
+			for (int i = FlightGlobals.Vessels.Count - 1; i >= 0; i--) { 
+			var v = FlightGlobals.Vessels[i];
+			//foreach (Vessel v in FlightGlobals.Vessels) {
 				if ((v.vesselType != VesselType.EVA) && 
 					(v.vesselType != VesselType.Flag) && 
 					(v.vesselType != VesselType.SpaceObject) && 

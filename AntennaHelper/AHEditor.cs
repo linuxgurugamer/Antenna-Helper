@@ -224,7 +224,7 @@ namespace AntennaHelper
 			// Direct combinable :
 			if (nbDirectCombAntenna > 0) {
 				rawDirectCombPower = AHUtil.GetVesselPower (directCombAntennaList, false);
-				directCombPower = AHUtil.TruePower (rawDirectCombPower);//AHUtil.GetVesselPower (directCombAntennaList);
+				directCombPower = /* AHUtil.TruePower */ (rawDirectCombPower);//AHUtil.GetVesselPower (directCombAntennaList); // LGG
 				directCombRange = AHUtil.GetRange (directCombPower, targetPower);
 			} else {
 				rawDirectCombPower = 0;
@@ -236,9 +236,11 @@ namespace AntennaHelper
 			// Direct straight :
 			if (nbDirectAntenna > 0) {
 				ModuleDataTransmitter bigDirect = null;
-				foreach (ModuleDataTransmitter antenna in directAntennaList) {
-					if (bigDirect == null || bigDirect.antennaPower < antenna.antennaPower) {
-						bigDirect = antenna;
+				for (int a = directAntennaList.Count - 1; a >= 0; a--) { 
+					
+				//foreach (ModuleDataTransmitter antenna in directAntennaList) {
+					if (bigDirect == null || bigDirect.antennaPower < directAntennaList[a].antennaPower) {
+						bigDirect = directAntennaList[a];
 					}
 				}
 				rawDirectPower = bigDirect.antennaPower;
@@ -260,7 +262,7 @@ namespace AntennaHelper
 			// Relay combinable :
 			if (nbRelayCombAntenna > 0) {
 				rawRelayCombPower = AHUtil.GetVesselPower (relayCombAntennaList, false);
-				relayCombPower = AHUtil.TruePower (rawRelayCombPower);//AHUtil.GetVesselPower (relayCombAntennaList);
+				relayCombPower = /*AHUtil.TruePower */ (rawRelayCombPower);//AHUtil.GetVesselPower (relayCombAntennaList); // LGG
 				relayCombRange = AHUtil.GetRange (relayCombPower, targetPower);
 			} else {
 				rawRelayCombPower = 0;
@@ -388,7 +390,11 @@ namespace AntennaHelper
 			signalMinRelay = new List<double> ();
 			signalMaxRelay = new List<double> ();
 
-			foreach (MyTuple planet in AHUtil.signalPlanetList) {
+			for (int p = AHUtil.signalPlanetList.Count - 1; p >= 0; p--)
+            {
+				var planet = AHUtil.signalPlanetList[p];
+            
+			//foreach (MyTuple planet in AHUtil.signalPlanetList) {
 				signalMinDirect.Add (AHUtil.GetSignalStrength (directBetterRange, planet.item2));
 				signalMaxDirect.Add (AHUtil.GetSignalStrength (directBetterRange, planet.item3));
 				signalMinRelay.Add (AHUtil.GetSignalStrength (relayBetterRange, planet.item2));
@@ -454,7 +460,11 @@ namespace AntennaHelper
 			relayAntennaList = new List<ModuleDataTransmitter> ();
 			relayCombAntennaList = new List<ModuleDataTransmitter> ();
 
-			foreach (Part part in EditorLogic.fetch.ship.Parts) {
+			for (int p = EditorLogic.fetch.ship.Parts.Count - 1; p >=0; p--)
+            {
+				var part = EditorLogic.fetch.ship.parts[p];
+            
+			//foreach (Part part in EditorLogic.fetch.ship.Parts) {
 				foreach (ModuleDataTransmitter antenna in part.FindModulesImplementing<ModuleDataTransmitter> ()) {
 					directAntennaList.Add (antenna);
 					if (antenna.antennaCombinable) {

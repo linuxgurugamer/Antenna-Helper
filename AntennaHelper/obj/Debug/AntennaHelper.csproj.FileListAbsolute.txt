@@ -2,4 +2,5 @@ D:\Users\jbb\github\Antenna-Helper\AntennaHelper\bin\Debug\AntennaHelper.dll
 D:\Users\jbb\github\Antenna-Helper\AntennaHelper\bin\Debug\AntennaHelper.pdb
 D:\Users\jbb\github\Antenna-Helper\AntennaHelper\obj\Debug\AntennaHelper.dll
 D:\Users\jbb\github\Antenna-Helper\AntennaHelper\obj\Debug\AntennaHelper.pdb
+D:\Users\jbb\github\Antenna-Helper\AntennaHelper\obj\Debug\AntennaHelper.csproj.CoreCompileInputs.cache
 D:\Users\jbb\github\Antenna-Helper\AntennaHelper\obj\Debug\AntennaHelper.csprojAssemblyReference.cache

@@ -17,3 +17,8 @@ ChangeLog
 1.0.7.2
 	Thanks to user @tivec for this:
 		Change instances of part.Modules.find to part.FindModuleImplementing, This will make it so that mods that extends ModuleDataTransmitter (such as Near Future Exploration) is supported by this mod.
+
+1.0.7.3 (unreleased)
+	Optimization of a number of loops
+	Optimized of calculations, reducing number of multiplication functions
+	Fixed calculation error of range and power, mod was doing an extra multiplication of the rangeModifier, only noticable when range modifier != 1

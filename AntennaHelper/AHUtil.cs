@@ -57,6 +57,8 @@ namespace AntennaHelper
 
 		#region Math
 		public static double TruePower (double power) {
+			// Apparently stock is already doing the multiplication internally
+			//return power;
 			// return the "true power" of the antenna, stock power * range modifier
 			return power * HighLogic.CurrentGame.Parameters.CustomParams<CommNet.CommNetParams> ().rangeModifier;
 		}
@@ -76,10 +78,16 @@ namespace AntennaHelper
 				return antennas [0].antennaCombinableExponent;
 			}
 
-			foreach (ModuleDataTransmitter ant in antennas) {
+			for (int i = antennas.Count - 1; i >= 0; i--)
+			{
+				ModuleDataTransmitter ant = antennas[i];
+
+				//foreach (ModuleDataTransmitter ant in antennas) {
 				if (applyMod) {
-					x += TruePower (ant.antennaPower) * ant.antennaCombinableExponent;
-					y += TruePower (ant.antennaPower);
+					var truePower = TruePower(antennas[i].antennaPower);
+
+					x += /*TruePower (ant.antennaPower) */ truePower * ant.antennaCombinableExponent;
+					y += /*TruePower (ant.antennaPower) */ truePower;
 				} else {
 					x += ant.antennaPower * ant.antennaCombinableExponent;
 					y += ant.antennaPower;
@@ -97,12 +105,27 @@ namespace AntennaHelper
 			double strongestAnt = 0;
 			double allAnt = 0;
 			double awce = GetAWCE (antennas, applyMod);
+			for (int i = antennas.Count - 1; i >= 0; i--)
+			{
+				var truePower = antennas[i].antennaPower;
+				if (applyMod)
+					truePower = TruePower(truePower);
+				allAnt += truePower;
+				if (truePower > strongestAnt)
+				{
+					strongestAnt = antennas[i].antennaPower;
+					if (applyMod)
+						strongestAnt = TruePower(strongestAnt);
+				}
+			}
+#if false
 			foreach (ModuleDataTransmitter ant in antennas) {
-				allAnt += TruePower (ant.antennaPower);
+					allAnt += TruePower (ant.antennaPower);
 				if (TruePower (ant.antennaPower) > strongestAnt) {
 					strongestAnt = TruePower (ant.antennaPower);
 				}
 			}
+#endif
 			double vesselPower = strongestAnt * Math.Pow (allAnt / strongestAnt, awce);
 			return vesselPower;
 		}
@@ -666,7 +689,7 @@ namespace AntennaHelper
 			}
 			return circleSelectClean;
 		}
-		#endregion
+#endregion
 	}
 
 	public class MyTuple
