@@ -78,7 +78,7 @@ namespace AntennaHelper
 				return antennas [0].antennaCombinableExponent;
 			}
 
-			for (int i = antennas.Count - 1; i >= 0; i--)
+			for (int i = 0; i < antennas.Count; i++)
 			{
 				ModuleDataTransmitter ant = antennas[i];
 

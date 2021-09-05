@@ -28,3 +28,9 @@ ChangeLog
 1.0.7.4
 	Added AssemblyFileVersion
 	Updated version file for 1.12
+
+1.0.7.5
+	Fixed sort order in Signal Strength window
+	Redid new loops to work the same way as the "foreach" that they replaced
+	Thanks to github user @fitiales for this:
+		Update es-es.cfg

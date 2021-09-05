@@ -236,7 +236,7 @@ namespace AntennaHelper
 			// Direct straight :
 			if (nbDirectAntenna > 0) {
 				ModuleDataTransmitter bigDirect = null;
-				for (int a = directAntennaList.Count - 1; a >= 0; a--) { 
+				for (int a = 0;  a< directAntennaList.Count; a++) { 
 					
 				//foreach (ModuleDataTransmitter antenna in directAntennaList) {
 					if (bigDirect == null || bigDirect.antennaPower < directAntennaList[a].antennaPower) {
@@ -390,7 +390,8 @@ namespace AntennaHelper
 			signalMinRelay = new List<double> ();
 			signalMaxRelay = new List<double> ();
 
-			for (int p = AHUtil.signalPlanetList.Count - 1; p >= 0; p--)
+			//for (int p = AHUtil.signalPlanetList.Count - 1; p >= 0; p--)
+			for (int p = 0; p < AHUtil.signalPlanetList.Count; p++)
             {
 				var planet = AHUtil.signalPlanetList[p];
             
@@ -460,7 +461,7 @@ namespace AntennaHelper
 			relayAntennaList = new List<ModuleDataTransmitter> ();
 			relayCombAntennaList = new List<ModuleDataTransmitter> ();
 
-			for (int p = EditorLogic.fetch.ship.Parts.Count - 1; p >=0; p--)
+			for (int p = 0; p < EditorLogic.fetch.ship.Parts.Count ; p++)
             {
 				var part = EditorLogic.fetch.ship.parts[p];
             
