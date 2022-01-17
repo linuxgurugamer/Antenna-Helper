@@ -47,11 +47,14 @@ namespace AntennaHelper
 
             foreach (AvailablePart aPart in PartLoader.LoadedPartsList)
             {
-                foreach (ModuleDataTransmitter antenna in aPart.partPrefab.FindModulesImplementing<ModuleDataTransmitter>())
+                if (aPart != null)
                 {
-                    if (antenna.antennaType != AntennaType.INTERNAL)
+                    foreach (ModuleDataTransmitter antenna in aPart.partPrefab.FindModulesImplementing<ModuleDataTransmitter>())
                     {
-                        listAntennaPart.Add(antenna);
+                        if (antenna.antennaType != AntennaType.INTERNAL)
+                        {
+                            listAntennaPart.Add(antenna);
+                        }
                     }
                 }
             }
