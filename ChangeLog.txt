@@ -37,3 +37,7 @@ ChangeLog
 
 1.0.7.6
 	Added check for null when searching available parts
+
+1.0.7.7
+	Thanks to forum user @leonardfactory for an additional fix for the exception during load
+	Added check to exclude any internal models for kerbalEVA

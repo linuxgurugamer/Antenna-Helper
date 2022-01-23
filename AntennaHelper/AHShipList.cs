@@ -47,7 +47,7 @@ namespace AntennaHelper
 
             foreach (AvailablePart aPart in PartLoader.LoadedPartsList)
             {
-                if (aPart != null && aPart.partPrefab != null)
+                if (aPart != null && aPart.partPrefab != null && !aPart.name.StartsWith("kerbalEVA") )
                 {
                     try
                     {
