@@ -1,6 +1,0 @@
-D:\Users\jbb\github\Antenna-Helper\AntennaHelper\bin\Release\AntennaHelper.dll
-D:\Users\jbb\github\Antenna-Helper\AntennaHelper\bin\Release\AntennaHelper.pdb
-D:\Users\jbb\github\Antenna-Helper\AntennaHelper\obj\Release\AntennaHelper.csproj.CoreCompileInputs.cache
-D:\Users\jbb\github\Antenna-Helper\AntennaHelper\obj\Release\AntennaHelper.dll
-D:\Users\jbb\github\Antenna-Helper\AntennaHelper\obj\Release\AntennaHelper.pdb
-D:\Users\jbb\github\Antenna-Helper\AntennaHelper\obj\Release\AntennaHelper.csprojAssemblyReference.cache
